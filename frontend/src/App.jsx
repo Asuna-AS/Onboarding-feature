@@ -1,25 +1,30 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import { AuthContext } from './contexts/AuthContext';
+import PrivateRoute from './components/PrivateRoute';
 import Register from './components/Register';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
-import { AuthProvider } from './contexts/AuthContext';
-import PrivateRoute from './components/PrivateRoute';
-import "./App.css"
 
 const App = () => {
+  const { setIsAuthenticated } = useContext(AuthContext);
+  const [isAuth, setAuth] = useState(localStorage.getItem('token')?true:false);
+  const navigate = useNavigate();
+  const token = localStorage.getItem('token');
+  useEffect(() => {
+    if (token) {
+      setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
+    }
+  }, [setIsAuthenticated, navigate]);
   return (
-    <AuthProvider>
-      <Routes>
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={
-          <PrivateRoute>
-            <Dashboard />
-          </PrivateRoute>
-        } />
-      </Routes>
-    </AuthProvider>
+    <Routes>
+      <Route path="/" element={isAuth?<Dashboard />: <Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={isAuth?<Dashboard />: <Login />} />
+      <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+    </Routes>
   );
 };
 

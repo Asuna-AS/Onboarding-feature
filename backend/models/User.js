@@ -10,8 +10,9 @@ const userSchema = new Schema({
   class_: { type: String, required: function() { return this.role === 'student'; } },
   section: { type: String, required: function() { return this.role === 'student'; } },
   teachesClass: { type: String, required: function() { return this.role === 'teacher'; } },
-  teachesSection: { type: String, required: function() { return this.role === 'teacher'; } }, 
-  orgId: { type: String, required: true } 
+  teachesSection: { type: String, required: function() { return this.role === 'teacher'; } },
+  orgId: { type: String, required: true },
+  image: { type: String }
 });
 
 module.exports = mongoose.model('User', userSchema);
