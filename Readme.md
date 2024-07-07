@@ -85,6 +85,7 @@ This project is a user management dashboard that allows users to register and lo
 - **Get User Data:** `GET /api/auth/user`
 - **Update User Data:** `PUT /api/auth/update/:id`
 - **Verify Student:** `POST /api/auth/verify-student/:id`
+- **Verify Teacher:** `POST /api/auth/verify-teacher/:id`
 
 ## Frontend Components
 
