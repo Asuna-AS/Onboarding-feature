@@ -31,76 +31,76 @@ This project is a user management dashboard that allows users to register and lo
 
 1. Clone the repository:
 
-   \`\`\`bash
+   ```sh
    git clone https://github.com/your-username/user-management-dashboard.git
    cd user-management-dashboard
-   \`\`\`
+   ```
 
 2. Install backend dependencies:
 
-   \`\`\`bash
+   ```sh
    cd backend
    npm install
-   \`\`\`
+   ```
 
 3. Install frontend dependencies:
 
-   \`\`\`bash
+   ```sh
    cd ../frontend
    npm install
-   \`\`\`
+   ```
 
 ### Configuration
 
 1. Create a \`.env\` file in the \`backend\` directory and add the following environment variables:
 
-   \`\`\`env
+   ```env
    MONGO_URI=<your-mongodb-uri>
    JWT_SECRET=<your-jwt-secret>
-   \`\`\`
+   ```
 
 2. Start the backend server:
 
-   \`\`\`bash
+   ```bash
    cd backend
    npm start
-   \`\`\`
+   ```
 
 3. Start the frontend development server:
 
-   \`\`\`bash
+   ```bash
    cd ../frontend
    npm start
-   \`\`\`
+   ```
 
 ## API Endpoints
 
 ### Authentication
 
-- **Register User:** \`POST /api/auth/register\`
-- **Login User:** \`POST /api/auth/login\`
+- **Register User:** `POST /api/auth/register`
+- **Login User:** `POST /api/auth/login`
 
 ### User Management
 
-- **Get User Data:** \`GET /api/auth/user\`
-- **Update User Data:** \`PUT /api/auth/update/:id\`
-- **Verify Student:** \`POST /api/auth/verify-student/:id\`
+- **Get User Data:** `GET /api/auth/user`
+- **Update User Data:** `PUT /api/auth/update/:id`
+- **Verify Student:** `POST /api/auth/verify-student/:id`
 
 ## Frontend Components
 
 ### Login Page
 
-- **Path:** \`/login\`
+- **Path:** `/login`
 - **Description:** Allows users to log in to their accounts.
 
 ### Register Page
 
-- **Path:** \`/register\`
+- **Path:** `/register`
 - **Description:** Allows users to create a new account with profile picture upload.
 
 ### Dashboard
 
-- **Path:** \`/dashboard\`
+- **Path:** `/dashboard`
 - **Description:** Displays user information and additional features based on user role.
 
   - **Student View:** Shows personal information.
@@ -109,7 +109,7 @@ This project is a user management dashboard that allows users to register and lo
 
 ### Edit User
 
-- **Component:** \`<EditUser />\`
+- **Component:** `<EditUser />`
 - **Description:** Allows users to edit their profile details, including updating their profile picture.
 
 ## Screenshots
